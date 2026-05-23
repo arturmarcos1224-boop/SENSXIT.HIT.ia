@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>REAL SENSI ULTRA GOLD CYBER V29 MASTER</title>
+
+<style>
+
+:root{
+--gold:#ffd700;
+--gold2:#ff9800;
+--neon:#8b0000;
+--bg:#050505;
+--red:#ff3b3b;
+--roxo:#9c27b0;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:
+radial-gradient(circle at center,#1a0000 0%,#000 75%);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+overflow-x:hidden;
+color:#fff;
+}
+
+/* ===================================
+   TELA DE ENTRADA PERSONALIZADA
+=================================== */
+.tela-login{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background: linear-gradient(135deg, #000000 0%, #2b0000 50%, #000000 100%);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:999;
+padding:20px;
+overflow:hidden;
+}
+
+.luz-fundo{
+position:absolute;
+width:600px;
+height:600px;
+background: radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, rgba(139, 0, 0, 0.05) 50%, transparent 70%);
+animation: girar 8s linear infinite;
+z-index:0;
+}
+
+@keyframes girar{
+0%{transform:rotate(0deg) scale(1);}
+50%{transform:rotate(180deg) scale(1.2);}
+100%{transform:rotate(360deg) scale(1);}
+}
+
+.moldura{
+position:relative;
+z-index:2;
+width:100%;
+max-width:450px;
+padding:4px;
+background: linear-gradient(45deg, #ffd700, #ff9800, #ff3b3b, #8b0000, #ffd700);
+border-radius:30px;
+animation: brilho 2s linear infinite;
+background-size:400% 400%;
+}
+
+@keyframes brilho{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.caixa-login{
+background: #0a0a0a;
+border-radius:28px;
+padding:50px 30px;
+text-align:center;
+box-shadow: inset 0 0 20px #000, 0 0 40px rgba(139,0,0,0.3);
+}
+
+.logo-principal{
+font-size:78px;
+font-weight:900;
+background:
+linear-gradient(
+180deg,
+#fff9c4,
+#ffd700,
+#ff9800,
+#ff3b3b,
+#8b0000
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+filter:
+drop-shadow(0 0 10px #ffd700)
+drop-shadow(0 0 25px #ff9800)
+drop-shadow(0 0 40px #8b0000);
+animation:pulse 1.8s infinite alternate;
+text-align:center;
+}
+
+@keyframes pulse{
+100%{transform:scale(1.05);}
+}
+
+.sub-logo{
+margin-top:12px;
+font-size:18px;
+font-weight:900;
+letter-spacing:5px;
+color:#ff3b3b;
+text-shadow:0 0 20px #8b0000;
+margin-bottom:40px;
+}
+
+.aviso-sistema{
+background: rgba(255, 215, 0, 0.1);
+border:1px solid #ffd700;
+padding:12px;
+border-radius:12px;
+color:#ffd700;
+font-weight:bold;
+font-size:15px;
+margin-bottom:30px;
+box-shadow: 0 0 15px rgba(255,215,0,0.2);
+}
+
+.icone-cadeado{
+font-size:60px;
+color:#ff3b3b;
+text-shadow: 0 0 20px #ff3b3b;
+margin-bottom:20px;
+animation: flutuar 2s infinite alternate ease-in-out;
+}
+
+@keyframes flutuar{
+0%{transform:translateY(0);}
+100%{transform:translateY(-8px);}
+}
+
+.entrada-senha{
+width:100%;
+height:75px;
+padding:0 20px;
+border-radius:20px;
+border: 2px solid rgba(255,59,59,.3);
+background:#111;
+color:#fff;
+font-size:22px;
+font-weight:800;
+outline:none;
+text-align:center;
+transition:.3s;
+box-shadow: inset 0 0 10px #000, 0 0 20px rgba(139,0,0,.25);
+margin-bottom:15px;
+}
+
+.entrada-senha:focus{
+border-color:#ffd700;
+box-shadow: 0 0 30px rgba(255,215,0,.6), inset 0 0 10px #000;
+transform:scale(1.02);
+background:#151515;
+}
+
+.botao-entrar{
+width:100%;
+height:80px;
+border:none;
+border-radius:20px;
+font-size:28px;
+font-weight:900;
+cursor:pointer;
+color:#fff;
+background: linear-gradient(135deg, #ffd700, #ff9800, #ff3b3b, #8b0000);
+background-size:400% 400%;
+animation: gradienteAnimado 3s ease infinite;
+box-shadow: 0 0 20px #ffd700, 0 0 40px #ff3b3b;
+transition:.3s;
+letter-spacing:2px;
+margin-top:10px;
+}
+
+@keyframes gradienteAnimado{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.botao-entrar:hover{
+transform:scale(1.04);
+box-shadow: 0 0 30px #ffd700, 0 0 60px #ff3b3b, 0 0 80px #8b0000;
+}
+
+.mensagem-erro{
+display:none;
+margin-top:15px;
+font-size:18px;
+font-weight:800;
+color:#ff3b3b;
+text-shadow:0 0 15px #ff3b3b;
+animation: tremer 0.2s infinite alternate;
+background: rgba(139,0,0,0.1);
+padding:8px;
+border-radius:8px;
+border:1px solid #ff3b3b;
+}
+
+@keyframes tremer{
+100%{transform:translateX(2px);}
+}
+
+.versao-login{
+margin-top:25px;
+color:#888;
+font-size:14px;
+letter-spacing:2px;
+}
+
+/* ===================================
+   OLHO PERSONALIZADO
+=================================== */
+.olho-capa {
+width: 120px;
+height: 120px;
+margin: 0 auto 20px;
+position: relative;
+background: radial-gradient(circle, #fff 0%, #f1f1f1 40%, #999 100%);
+border-radius: 70%;
+box-shadow: 
+inset 0 0 20px #000, 
+0 0 30px rgba(255, 59, 59, 0.6), 
+0 0 60px rgba(255, 215, 0, 0.3);
+animation: pulsarOlho 2s infinite alternate ease-in-out;
+}
+
+@keyframes pulsarOlho {
+0% { transform: scale(1); box-shadow: inset 0 0 20px #000, 0 0 30px rgba(255, 59, 59, 0.6), 0 0 60px rgba(255, 215, 0, 0.3); }
+100% { transform: scale(1.08); box-shadow: inset 0 0 25px #000, 0 0 40px rgba(255, 59, 59, 0.8), 0 0 80px rgba(255, 215, 0, 0.5); }
+}
+
+.olho-capa .iris {
+width: 60px;
+height: 60px;
+background: linear-gradient(45deg, #8b0000, #ff3b3b, #ff9800);
+border-radius: 50%;
+position: absolute;
+top: 50%; left: 50%;
+transform: translate(-50%, -50%);
+box-shadow: 0 0 15px #000, inset 0 0 10px rgba(0, 0, 0, 0.5);
+animation: brilhoIris 1.5s infinite alternate;
+}
+
+@keyframes brilhoIris {
+0% { filter: brightness(1); }
+100% { filter: brightness(1.4); }
+}
+
+.olho-capa .pupila {
+width: 28px;
+height: 28px;
+background: #000;
+border-radius: 50%;
+position: absolute;
+top: 50%; left: 50%;
+transform: translate(-50%, -50%);
+box-shadow: 0 0 8px #000;
+}
+
+.olho-capa .brilho {
+width: 18px;
+height: 18px;
+background: #fff;
+border-radius: 50%;
+position: absolute;
+top: 30%; left: 35%;
+opacity: 0.9;
+filter: blur(1px);
+}
+
+/* ===================================
+   TELA DE CARREGAMENTO / SCAN
+=================================== */
+#loader{
+display:none;
+margin-top:30px;
+padding:40px 20px;
+background: rgba(0,0,0,0.6);
+border-radius:25px;
+border:1px solid rgba(255,59,59,.4);
+box-shadow: inset 0 0 20px #000, 0 0 40px rgba(255,59,59,.2);
+text-align:center;
+}
+
+#loader h2{
+font-size:28px;
+font-weight:900;
+color:#ffd700;
+text-shadow:0 0 15px #ff3b3b;
+letter-spacing:2px;
+margin-bottom:15px;
+animation: piscarTexto 0.8s infinite alternate;
+}
+
+@keyframes piscarTexto{
+100%{opacity:0.7;}
+}
+
+.scan-box{
+width:100%;
+height:35px;
+margin-top:20px;
+background:#111;
+border-radius:30px;
+overflow:hidden;
+border:2px solid rgba(255,59,59,.6);
+box-shadow:inset 0 0 15px #000, 0 0 20px rgba(255,59,59,.3);
+}
+
+.scan-fill{
+width:0%;
+height:100%;
+background: linear-gradient(90deg, #ffd700, #ff9800, #ff3b3b, #8b0000);
+background-size:200% 200%;
+animation: moverGrad 0.5s linear infinite;
+box-shadow: 0 0 30px #ff3b3b;
+transition:.15s ease-out;
+}
+
+@keyframes moverGrad{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
+}
+
+#scanPercent{
+font-size:32px !important;
+font-weight:900;
+color:#fff !important;
+text-shadow: 0 0 10px #fff, 0 0 20px #ffd700, 0 0 30px #ff3b3b;
+margin-top:15px !important;
+}
+
+/* ===================================
+   ESTILOS GERAIS DO SISTEMA
+=================================== */
+.container{
+display:none;
+width:100%;
+max-width:700px;
+}
+
+.card{
+padding:45px 35px;
+border-radius:35px;
+background:
+linear-gradient(
+180deg,
+rgba(139,0,0,.08),
+rgba(255,145,0,.03)
+);
+border:
+1px solid rgba(139,0,0,.25);
+backdrop-filter:blur(15px);
+box-shadow:
+0 0 30px rgba(139,0,0,.2);
+}
+
+.title{
+font-size:40px;
+font-weight:900;
+text-align:center;
+margin-bottom:30px;
+color:#8b0000;
+text-shadow:
+0 0 12px #8b0000,
+0 0 30px #ffd700;
+}
+
+input,
+select{
+width:100%;
+height:76px;
+margin-top:22px;
+padding:0 20px;
+border-radius:24px;
+border:2px solid rgba(139,0,0,.2);
+background:#080808;
+color:#fff;
+font-size:22px;
+font-weight:800;
+outline:none;
+text-align:center;
+transition:.25s;
+box-shadow:
+0 0 18px rgba(139,0,0,.2);
+}
+
+input:focus,
+select:focus{
+border-color:#8b0000;
+box-shadow:
+0 0 30px rgba(139,0,0,.5);
+transform:scale(1.01);
+}
+
+.btn{
+width:100%;
+height:88px;
+margin-top:35px;
+border:none;
+border-radius:28px;
+font-size:32px;
+font-weight:900;
+cursor:pointer;
+color:#fff;
+background:
+linear-gradient(
+135deg,
+#ffd700,
+#ff9800,
+#8b0000
+);
+box-shadow:
+0 0 15px #ffd700,
+0 0 30px #ff9800,
+0 0 50px #8b0000;
+transition:.25s;
+}
+
+.btn:hover{
+transform:scale(1.03);
+}
+
+.sensi-box{
+padding:30px;
+border-radius:30px;
+background:
+linear-gradient(
+180deg,
+rgba(139,0,0,.08),
+rgba(255,145,0,.03)
+);
+border:
+1px solid rgba(139,0,0,.2);
+}
+
+.sensi-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.sensi-title{
+font-size:28px;
+font-weight:900;
+color:#8b0000;
+}
+
+.sensi-badge{
+padding:10px 20px;
+border-radius:15px;
+background:
+linear-gradient(
+135deg,
+#ffd700,
+#8b0000
+);
+font-size:18px;
+font-weight:900;
+color:#fff;
+}
+
+.sensi-item{
+margin-top:22px;
+}
+
+.sensi-info{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+}
+
+.sensi-name{
+font-size:18px;
+font-weight:800;
+}
+
+.sensi-number{
+font-size:22px;
+font-weight:900;
+color:#8b0000;
+}
+
+.sensi-bar{
+width:100%;
+height:18px;
+background:#111;
+border-radius:30px;
+overflow:hidden;
+}
+
+.sensi-fill{
+height:100%;
+border-radius:30px;
+background:
+linear-gradient(
+90deg,
+#ffd700,
+#ff9800,
+#8b0000
+);
+box-shadow:
+0 0 15px #8b0000;
+}
+
+.fire-box{
+margin-top:30px;
+padding:30px;
+border-radius:25px;
+text-align:center;
+background:
+linear-gradient(
+135deg,
+rgba(139,0,0,.15),
+rgba(255,145,0,.08)
+);
+border:
+1px solid rgba(139,0,0,.2);
+}
+
+.fire-number{
+font-size:70px;
+font-weight:900;
+color:#8b0000;
+text-shadow:
+0 0 15px #8b0000,
+0 0 35px #ffd700;
+}
+
+.fire-text{
+margin-top:10px;
+font-size:20px;
+font-weight:900;
+letter-spacing:2px;
+}
+
+.dpi-result{
+margin-top:22px;
+padding:18px;
+border-radius:18px;
+background:
+rgba(139,0,0,.1);
+text-align:center;
+font-size:22px;
+font-weight:900;
+color:#8b0000;
+border:
+1px solid rgba(139,0,0,.25);
+}
+
+.ai-msg{
+margin-top:22px;
+padding:18px;
+border-radius:18px;
+background:
+linear-gradient(
+135deg,
+#ffd700,
+#8b0000
+);
+color:#fff;
+font-size:20px;
+font-weight:900;
+text-align:center;
+box-shadow:
+0 0 25px #8b0000;
+}
+
+#result{
+display:none;
+margin-top:30px;
+}
+
+@media(max-width:700px){
+.logo-principal{
+font-size:50px;
+}
+.card{
+padding:35px 22px;
+}
+.title{
+font-size:30px;
+}
+input,
+select{
+height:68px;
+font-size:20px;
+}
+.btn{
+height:80px;
+font-size:28px;
+}
+.fire-number{
+font-size:56px;
+}
+}
+
+</style>
+</head>
+<body>
+
+<!-- TELA DE ENTRADA PERSONALIZADA -->
+<div class="tela-login" id="telaLogin">
+<div class="luz-fundo"></div>
+
+<div class="moldura">
+<div class="caixa-login">
+
+<div class="logo-principal">REAL SENSI</div>
+<div class="sub-logo">ULTRA GOLD CYBER V29</div>
+
+<div class="aviso-sistema">🔒 ACESSO RESTRITO AO SISTEMA</div>
+
+<div class="icone-cadeado">🔐</div>
+
+<input
+type="password"
+id="senha"
+class="entrada-senha"
+placeholder="DIGITE A SENHA"
+>
+
+<div id="erro" class="mensagem-erro">
+❌ SENHA INCORRETA! TENTE NOVAMENTE
+</div>
+
+<button class="botao-entrar" onclick="abrirPainel()">
+⚡ ENTRAR
+</button>
+
+<div class="versao-login">VERSÃO MASTER • 2026</div>
+
+</div>
+</div>
+</div>
+
+<!-- SISTEMA PRINCIPAL -->
+<div class="container">
+
+<div class="card">
+
+<div class="title">
+⚡ IA CALCULADORA DE CAPA
+</div>
+
+<input
+id="marca"
+placeholder="MARCA DO CELULAR"
+>
+
+<input
+id="modelo"
+placeholder="MODELO"
+>
+
+<input
+id="famoso"
+placeholder="INFLUENCIADOR"
+>
+
+<select id="tipo">
+<option>BAIXA</option>
+<option selected>MEDIA</option>
+<option>ALTA</option>
+</select>
+
+<select id="modo">
+<option selected>NORMAL</option>
+<option>LENDA</option>
+<option>PROIBIDA</option>
+</select>
+
+<select id="calibragem">
+<option>CALIBRADA</option>
+<option selected>PRO</option>
+<option>ULTRA PRO</option>
+</select>
+
+<select
+id="usarDpi"
+onchange="toggleDpi()"
+>
+<option>OFF</option>
+<option>ON</option>
+</select>
+
+<div
+id="dpiField"
+style="display:none;"
+>
+<input
+id="dpi"
+type="number"
+placeholder="DPI"
+>
+</div>
+
+<button
+class="btn"
+onclick="processar()"
+>
+⚡ GERAR SENSI
+</button>
+
+<div id="loader">
+
+<h2 id="armaNome">
+ESCANEANDO
+</h2>
+
+<div class="scan-box">
+<div class="scan-fill" id="scanFill"></div>
+</div>
+
+<h2 id="scanPercent">0%</h2>
+
+</div>
+
+<div id="result">
+<div id="cards"></div>
+</div>
+
+</div>
+</div>
+
+<script>
+
+const scans=[
+"MP40 PREDADORA",
+"M1014 EVO",
+"AK DRAGÃO",
+"UMP BOOYAH",
+"SCAR TITAN",
+"M1887 ONE PUNCH",
+"XM8 OURO",
+"AWM INFERNAL",
+"MAC10 VOADORA",
+"GROZA ABSURDA",
+"DESERT EAGLE CAPA"
+];
+
+function abrirPainel(){
+const senha = document.getElementById("senha").value;
+if(senha !== "RS_sensi"){
+document.getElementById("erro").style.display="block";
+navigator.vibrate?.(300);
+return;
+}
+document.getElementById("telaLogin").style.display="none";
+document.querySelector(".container").style.display="block";
+}
+
+function toggleDpi(){
+const usar= document.getElementById("usarDpi").value;
+document.getElementById("dpiField").style.display= usar==="ON" ? "block" : "none";
+}
+
+function processar(){
+document.getElementById("loader").style.display="block";
+document.getElementById("result").style.display="none";
+
+let percent=0;
+const arma= document.getElementById("armaNome");
+const fill= document.getElementById("scanFill");
+const scan= document.getElementById("scanPercent");
+
+let troca= setInterval(()=>{
+arma.innerText= "ESCANEANDO : "+ scans[Math.floor(Math.random()*scans.length)];
+},120);
+
+let barra= setInterval(()=>{
+percent+=5;
+if(percent>100) percent=100;
+scan.innerText= percent+"%";
+fill.style.width= percent+"%";
+},80);
+
+setTimeout(()=>{
+clearInterval(troca);
+clearInterval(barra);
+document.getElementById("loader").style.display="none";
+gerar();
+},2200);
+}
+
+function criarBarra(nome,valor){
+let largura = (valor / 200) * 100;
+return`
+<div class="sensi-item">
+<div class="sensi-info">
+<div class="sensi-name">${nome}</div>
+<div class="sensi-number">${valor}</div>
+</div>
+<div class="sensi-bar">
+<div class="sensi-fill" style="width:${largura}%"></div>
+</div>
+</div>
+`;
+}
+
+function gerar(){
+const tipo = document.getElementById("tipo").value;
+const dpi = Number(document.getElementById("dpi").value || 450);
+const marca = document.getElementById("marca").value.toLowerCase();
+const modelo = document.getElementById("modelo").value.toLowerCase();
+const famoso = document.getElementById("famoso").value.toLowerCase();
+const modo = document.getElementById("modo").value;
+const calibragem = document.getElementById("calibragem").value;
+
+/* ===================================
+SISTEMA DE CALCULO TURBINADO V29
+=================================== */
+let baseDpi = dpi;
+if(baseDpi < 300) baseDpi = 300;
+if(baseDpi > 800) baseDpi = 800;
+
+// POTÊNCIA AUMENTADA PARA CAPA
+let potencia = 1.20;
+
+/* TIPO */
+if(tipo==="BAIXA") potencia = 1.10;
+if(tipo==="MEDIA") potencia = 1.35;
+if(tipo==="ALTA") potencia = 1.60;
+
+/* MODO */
+if(modo==="LENDA") potencia += 0.15;
+if(modo==="PROIBIDA") potencia += 0.28;
+
+/* CALIBRAGEM */
+if(calibragem==="PRO") potencia += 0.10;
+if(calibragem==="ULTRA PRO") potencia += 0.20;
+
+/* MARCAS */
+if(marca.includes("xiaomi")) potencia += 0.12;
+if(marca.includes("iphone")) potencia += 0.20;
+if(marca.includes("samsung")) potencia += 0.08;
+if(marca.includes("motorola")) potencia += 0.05;
+if(marca.includes("realme")) potencia += 0.09;
+if(marca.includes("poco")) potencia += 0.15;
+
+/* MODELOS */
+if(modelo.includes("redmi")) potencia += 0.08;
+if(modelo.includes("a03")) potencia -= 0.05;
+if(modelo.includes("moto g")) potencia -= 0.03;
+
+/* INFLUENCIADOR */
+if(famoso.includes("nobru")) potencia += 0.07;
+if(famoso.includes("two9")) potencia += 0.10;
+if(famoso.includes("cerol")) potencia += 0.05;
+
+/* ===================================
+VALORES DE SENSIBILIDADE
+=================================== */
+let geral = Math.round( (60 + (baseDpi * 0.075)) * potencia );
+let red = Math.round( (70 + (baseDpi * 0.085)) * potencia );
+let mira2 = Math.round( red * 0.90 );
+let mira4 = Math.round( mira2 * 0.82 );
+let awm = Math.round( (35 + (baseDpi * 0.030)) * potencia );
+let livre = Math.round( (60 + (baseDpi * 0.035)) * potencia );
+let botao = Math.round( (25 + (baseDpi * 0.018)) * potencia );
+
+/* ===================================
+LIMITADORES DE SEGURANÇA
+=================================== */
+if(tipo==="BAIXA"){
+if(geral < 100) geral = 100;
+if(geral > 150) geral = 150;
+if(red > 150) red = 150;
+}
+if(tipo==="MEDIA"){
+if(geral < 120) geral = 120;
+if(geral > 170) geral = 170;
+if(red > 170) red = 170;
+}
+if(tipo==="ALTA"){
+if(geral < 150) geral = 150;
+if(geral > 200) geral = 200;
+if(red > 200) red = 200;
+}
+if(mira2 > red) mira2 = red - 5;
+if(mira4 > mira2) mira4 = mira2 - 8;
+if(botao > 48) botao = 48;
+if(botao < 28) botao = 28;
+
+const valores = {geral,red,mira2,mira4,awm,livre,botao};
+
+document.getElementById("cards").innerHTML=
+`
+<div class="sensi-box">
+
+<div class="sensi-top">
+<div class="sensi-title">IA CALCULADA</div>
+<div class="sensi-badge">🔥 ${modo}</div>
+</div>
+
+${criarBarra("GERAL",valores.geral)}
+${criarBarra("PONTO VERMELHO",valores.red)}
+${criarBarra("MIRA 2X",valores.mira2)}
+${criarBarra("MIRA 4X",valores.mira4)}
+${criarBarra("AWM",valores.awm)}
+
+<!-- OLHO PERSONALIZADO AQUI -->
+<div class="olho-capa">
+<div class="iris"><div class="pupila"></div><div class="brilho"></div></div>
+</div>
+${criarBarra("OLHADINHA",valores.livre)}
+
+<div class="fire-box">
+<div class="fire-number">${valores.botao}</div>
+<div class="fire-text">BOTÃO ULTRA CAPA</div>
+</div>
+
+<div class="dpi-result">
+⚡ DPI CALCULADA : ${dpi}
+</div>
+
+<div class="ai-msg">
+🔥 IA MATEMÁTICA • SENSI EXTREMAMENTE PRECISA
+</div>
+
+</div>
+`;
+
+document.getElementById("result").style.display="block";
+}
+
+</script>
+</body>
+</html>
+
